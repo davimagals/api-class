@@ -70,8 +70,8 @@ CREATE TABLE infracao (
     veiculo_placa CHAR(7) NOT NULL,
     agente_cpf CHAR(11) NOT NULL,
     
-    FOREIGN KEY (local_id) REFERENCES endereco(id)
-    FOREIGN KEY (motorista_id) REFERENCES motorista(cnh),
-    FOREIGN KEY (veiculo_id) REFERENCES veiculo(placa),
-    FOREIGN KEY (agente_id) REFERENCES agente(id)
+    FOREIGN KEY (local_id) REFERENCES endereco(id),
+    FOREIGN KEY (motorista_cnh) REFERENCES motorista(cnh),
+    FOREIGN KEY (veiculo_placa) REFERENCES veiculo(placa),
+    FOREIGN KEY (agente_cpf) REFERENCES agente(id)
 );
