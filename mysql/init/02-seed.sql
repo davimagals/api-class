@@ -35,21 +35,21 @@ INSERT INTO estado (nome, sigla) VALUES
 -- =========================
 -- ENDEREÇOS
 -- =========================
-INSERT INTO endereco (logradouro, numero, cidade, estado_id) VALUES
-('Rua Boulevard', '123', 'Fortaleza', 6),
-('Av. Central', '201', 'São Paulo', 25),
-('Rua das Flores', '50', 'Recife', 17),
-('Av. da Universidade', '83', 'Fortaleza', 6),
-('Av. das Nações', '106', 'São Paulo', 25),
-('Rua das Almas', '58', 'Recife', 17);
+INSERT INTO endereco (rua, numero, complemento, bairro, cidade, estado_id) VALUES
+('Rua Boulevard', '123', NULL, 'Centro', 'Fortaleza', 6),
+('Av. Central', '201', 'Apto 101', 'Centro', 'São Paulo', 25),
+('Rua das Flores', '50', NULL, 'Boa Vista', 'Recife', 17),
+('Av. da Universidade', '83', NULL, 'Benfica', 'Fortaleza', 6),
+('Av. das Nações', '106', 'Sala 12', 'Centro', 'São Paulo', 25),
+('Rua das Almas', '58', NULL, 'Santo Amaro', 'Recife', 17);
 
 -- =========================
 -- MOTORISTAS
 -- =========================
 INSERT INTO motorista (cnh, nome, data_nascimento, endereco_id) VALUES
-('793242826', 'João Silva', '1990-01-01', 1),
-('964267942', 'Maria Souza', '1985-05-10', 2),
-('074346732', 'Carlos Lima', '1992-09-20', 3);
+('00079324282', 'João Silva', '1990-01-01', 1),
+('00096426794', 'Maria Souza', '1985-05-10', 2),
+('00074346732', 'Carlos Lima', '1992-09-20', 3);
 
 -- =========================
 -- VEÍCULOS
@@ -64,10 +64,10 @@ INSERT INTO veiculo (placa, marca, modelo, ano) VALUES
 -- =========================
 INSERT INTO agente (cpf, nome, area_atuacao) VALUES
 ('65524584561', 'Silva', 'Guarda Municipal'),
-('76345685355', 'Costa', 'PRE');
+('76345685355', 'Costa', 'Polícia Rodoviária Estadual');
 
 -- =========================
--- INFRAÇÕES (3 registros)
+-- INFRAÇÕES
 -- =========================
 INSERT INTO infracao (
     data_hora,
@@ -77,6 +77,6 @@ INSERT INTO infracao (
     veiculo_placa,
     agente_cpf
 ) VALUES
-('2026-04-20 10:00:00', 'Excesso de velocidade', 4, '793242826', 'ABC1A23', '65524584561'),
-('2025-03-12 11:30:00', 'Avanço de sinal vermelho', 5, '964267942', 'DEF4B56', '76345685355'),
-('2023-04-01 12:15:00', 'Estacionamento proibido', 6, '074346732', 'GHI7C89', '65524584561');
+('2026-04-20 10:00:00', 'Excesso de velocidade', 4, '00079324282', 'ABC1A23', '65524584561'),
+('2025-03-12 11:30:00', 'Avanço de sinal vermelho', 5, '00096426794', 'DEF4B56', '76345685355'),
+('2023-04-01 12:15:00', 'Estacionamento proibido', 6, '00074346732', 'GHI7C89', '65524584561');
