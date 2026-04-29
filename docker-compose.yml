@@ -4,7 +4,7 @@ services:
     container_name: api_class
     restart: always
     ports:
-      - "${PORT}:3000"
+      - "100.89.92.105:${PORT}:3000"
     env_file:
       - .env
     environment:
@@ -25,13 +25,6 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
       - ./mysql/init:/docker-entrypoint-initdb.d
-    ports:
-      - "3306:3306"
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      retries: 5
-      timeout: 5s
 
 volumes:
   mysql_data:
