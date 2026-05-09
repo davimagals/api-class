@@ -1,13 +1,22 @@
 import pool from "../database/index.js";
 
 export const AddressRepository = {
-  create: ({ rua, numero, complemento, bairro, cidade, estado_id }) => {
-    return pool.query(
+  async findById(id) {
+    const [rows] = await pool.query("SELECT * FROM m_endereco WHERE id = ?", [
+      id,
+    ]);
+    return rows[0] || null;
+  },
+
+  async create({ rua, numero, complemento, bairro, cidade, estado_id }) {
+    const [result] = await pool.query(
       `INSERT INTO m_endereco 
        (rua, numero, complemento, bairro, cidade, estado_id)
        VALUES (?, ?, ?, ?, ?, ?)`,
       [rua, numero, complemento, bairro, cidade, estado_id],
     );
+
+    return result.insertId;
   },
 
   async update({ id, rua, numero, complemento, bairro, cidade, estado_id }) {

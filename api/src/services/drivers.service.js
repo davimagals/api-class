@@ -18,11 +18,11 @@ export const DriversService = {
   },
 
   async create(data) {
-    const address = await AddressService.create(data);
+    const addressId = await AddressService.create(data);
 
     const insertId = await DriversRepository.create({
       ...data,
-      endereco_id: address.insertId,
+      endereco_id: addressId,
     });
 
     return {

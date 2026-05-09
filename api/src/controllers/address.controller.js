@@ -5,7 +5,7 @@ const asyncHandler = (fn) => (req, res, next) =>
 
 export const AddressController = {
   findById: asyncHandler(async (req, res) => {
-    const data = await AddressService.findByCnh(req.params.id);
+    const data = await AddressService.findById(req.params.id);
 
     res.status(200).json({
       success: true,
