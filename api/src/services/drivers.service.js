@@ -26,8 +26,10 @@ export const DriversService = {
 
     const address = await AddressService.findById(driver.endereco_id);
 
+    const { endereco_id, ...driverData } = driver;
+
     return {
-      ...driver,
+      ...driverData,
       endereco: address,
     };
   },
