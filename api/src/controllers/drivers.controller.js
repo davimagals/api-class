@@ -22,6 +22,15 @@ export const DriversController = {
     });
   }),
 
+  findByCnhWithAddress: asyncHandler(async (req, res) => {
+    const data = await DriversService.findByCnhWithAddress(req.params.cnh);
+
+    res.status(200).json({
+      success: true,
+      data,
+    });
+  }),
+
   create: asyncHandler(async (req, res) => {
     const result = await DriversService.create(req.body);
 

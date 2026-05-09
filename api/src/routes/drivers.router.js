@@ -11,6 +11,8 @@ router.get("/", DriversController.getAll);
 
 router.get("/:cnh", DriversController.findByCnh);
 
+router.get("/:cnh/endereco", DriversController.findByCnhWithAddress);
+
 router.post("/", validateBody(CreateDriverDTO), DriversController.create);
 
 router.patch("/:cnh", validateBody(UpdateDriverDTO), DriversController.update);

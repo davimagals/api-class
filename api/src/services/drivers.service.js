@@ -17,6 +17,21 @@ export const DriversService = {
     return driver;
   },
 
+  async findByCnhWithAddress(cnh) {
+    const driver = await DriversRepository.findByCnh(cnh);
+
+    if (!driver) {
+      throw new AppError("Motorista não encontrado", 404);
+    }
+
+    const address = await AddressService.findById(driver.endereco_id);
+
+    return {
+      ...driver,
+      endereco: address,
+    };
+  },
+
   async create(data) {
     const addressId = await AddressService.create(data);
 
