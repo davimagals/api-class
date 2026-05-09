@@ -1,12 +1,6 @@
 import { z } from "zod";
 
-export const CreateDriverDTO = z.object({
-  cnh: z.string().trim().max(11),
-
-  nome: z.string().trim().min(1).max(50),
-
-  data_nascimento: z.coerce.date(),
-
+export const UpdateAddressDTO = z.object({
   estado_id: z.number().int().min(1).max(27),
 
   cidade: z.string().trim().min(1).max(50),

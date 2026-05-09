@@ -8,7 +8,7 @@ const server = app.listen(PORT, () => {
 });
 
 server.on("error", (err) => {
-  console.error("Erro ao iniciar o servidor:", err);
+  console.error("Error starting server:", err);
   process.exit(1);
 });
 

@@ -3,7 +3,7 @@ import pool from "../database/index.js";
 export const AddressRepository = {
   create: ({ rua, numero, complemento, bairro, cidade, estado_id }) => {
     return pool.query(
-      `INSERT INTO endereco 
+      `INSERT INTO m_endereco 
        (rua, numero, complemento, bairro, cidade, estado_id)
        VALUES (?, ?, ?, ?, ?, ?)`,
       [rua, numero, complemento, bairro, cidade, estado_id],
@@ -20,7 +20,7 @@ export const AddressRepository = {
     estado_id,
   }) => {
     return pool.query(
-      `UPDATE endereco
+      `UPDATE m_endereco
        SET rua = ?, numero = ?, complemento = ?, bairro = ?, cidade = ?, estado_id = ?
        WHERE id = ?`,
       [rua, numero, complemento, bairro, cidade, estado_id, endereco_id],

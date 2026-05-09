@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 import driversRouter from "./routes/drivers.router.js";
+import addressRouter from "./routes/address.router.js";
 import { errorHandler } from "./middlewares/error.middleware.js";
 
 const app = express();
@@ -11,7 +12,7 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// CORS aberto (temporário)
+// CORS aberto
 app.use(
   cors({
     origin: "*",
@@ -20,6 +21,7 @@ app.use(
   }),
 );
 
+// JSON
 app.use(express.json());
 
 // Health Check
@@ -30,8 +32,11 @@ app.get("/health", (req, res) => {
 // Docs
 app.use("/docs", express.static(path.join(__dirname, "public/docs")));
 
-// Rotas
+// Rotas: Multas
 app.use("/api/multas/motoristas", driversRouter);
+app.use("/api/multas/enderecos", addressRouter);
+
+// Rotas: PizzExpress
 
 // 404 Handler
 app.use((req, res) => {
@@ -41,7 +46,7 @@ app.use((req, res) => {
   });
 });
 
-// Error handler (sempre por último)
+// Error handler
 app.use(errorHandler);
 
 export default app;

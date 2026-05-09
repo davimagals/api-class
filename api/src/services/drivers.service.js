@@ -32,31 +32,12 @@ export const DriversService = {
   },
 
   async update(data) {
-    const {
-      rua,
-      numero,
-      complemento,
-      bairro,
-      cidade,
-      estado_id,
-      ...driverData
-    } = data;
+    const [result] = await DriversRepository.update(data);
 
-    if (Object.keys(driverData).length > 1) {
-      const updated = await DriversRepository.update({
-        cnh: data.cnh,
-        ...driverData,
-      });
-
-      if (!updated) {
-        throw new AppError("Motorista não encontrado", 404);
-      }
+    if (result.affectedRows === 0) {
+      throw new AppError("Motorista não encontrado", 404);
     }
 
-    if (rua || numero || complemento || bairro || cidade || estado_id) {
-      await AddressService.update(data);
-    }
-
-    return { cnh: data.cnh, ...data };
+    return true;
   },
 };

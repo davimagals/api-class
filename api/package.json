@@ -1,6 +1,6 @@
 {
-  "name": "api-multas",
-  "version": "1.0.0",
+  "name": "api-class",
+  "version": "0.0.1",
   "description": "API para uso em aulas de programação",
   "type": "module",
   "scripts": {

@@ -14,6 +14,7 @@ COPY . .
 # Usa usuário não-root
 USER node
 
+# Expõe porta 3000
 EXPOSE 3000
 
 CMD ["node", "src/server.js"]

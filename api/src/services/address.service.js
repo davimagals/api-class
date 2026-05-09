@@ -11,10 +11,6 @@ export const AddressService = {
   },
 
   async update(data) {
-    if (!data.endereco_id) {
-      throw new AppError("endereco_id é obrigatório para atualização", 400);
-    }
-
     const [result] = await AddressRepository.update(data);
 
     if (result.affectedRows === 0) {

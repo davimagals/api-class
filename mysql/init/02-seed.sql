@@ -1,9 +1,13 @@
-USE multas;
+USE api_class;
+
+-- ===========================================================================
+-- Sistema de Multas
+-- ===========================================================================
 
 -- =========================
 -- ESTADOS (Brasil)
 -- =========================
-INSERT INTO estado (nome, sigla) VALUES
+INSERT INTO m_estado (nome, sigla) VALUES
 ('Acre','AC'),
 ('Alagoas','AL'),
 ('Amapá','AP'),
@@ -35,7 +39,7 @@ INSERT INTO estado (nome, sigla) VALUES
 -- =========================
 -- ENDEREÇOS
 -- =========================
-INSERT INTO endereco (rua, numero, complemento, bairro, cidade, estado_id) VALUES
+INSERT INTO m_endereco (rua, numero, complemento, bairro, cidade, estado_id) VALUES
 ('Rua Boulevard', '123', NULL, 'Centro', 'Fortaleza', 6),
 ('Av. Central', '201', 'Apto 101', 'Centro', 'São Paulo', 25),
 ('Rua das Flores', '50', NULL, 'Boa Vista', 'Recife', 17),
@@ -46,7 +50,7 @@ INSERT INTO endereco (rua, numero, complemento, bairro, cidade, estado_id) VALUE
 -- =========================
 -- MOTORISTAS
 -- =========================
-INSERT INTO motorista (cnh, nome, data_nascimento, endereco_id) VALUES
+INSERT INTO m_motorista (cnh, nome, data_nascimento, endereco_id) VALUES
 ('00079324282', 'João Silva', '1990-01-01', 1),
 ('00096426794', 'Maria Souza', '1985-05-10', 2),
 ('00074346732', 'Carlos Lima', '1992-09-20', 3);
@@ -54,7 +58,7 @@ INSERT INTO motorista (cnh, nome, data_nascimento, endereco_id) VALUES
 -- =========================
 -- VEÍCULOS
 -- =========================
-INSERT INTO veiculo (placa, marca, modelo, ano) VALUES
+INSERT INTO m_veiculo (placa, marca, modelo, ano) VALUES
 ('ABC1A23', 'Toyota', 'Corolla', 2020),
 ('DEF4B56', 'Chevrolet', 'Celta', 2019),
 ('GHI7C89', 'Ford', 'Focus', 2018);
@@ -62,14 +66,14 @@ INSERT INTO veiculo (placa, marca, modelo, ano) VALUES
 -- =========================
 -- AGENTES
 -- =========================
-INSERT INTO agente (cpf, nome, area_atuacao) VALUES
+INSERT INTO m_agente (cpf, nome, area_atuacao) VALUES
 ('65524584561', 'Silva', 'Guarda Municipal'),
 ('76345685355', 'Costa', 'Polícia Rodoviária Estadual');
 
 -- =========================
 -- INFRAÇÕES
 -- =========================
-INSERT INTO infracao (
+INSERT INTO m_infracao (
     data_hora,
     descricao,
     local_id,
