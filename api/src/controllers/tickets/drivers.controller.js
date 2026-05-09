@@ -1,4 +1,4 @@
-import { DriversService } from "../services/drivers.service.js";
+import { DriversService } from "../../services/tickets/drivers.service.js";
 
 const asyncHandler = (fn) => (req, res, next) =>
   Promise.resolve(fn(req, res, next)).catch(next);

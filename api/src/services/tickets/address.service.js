@@ -1,5 +1,5 @@
-import { AddressRepository } from "../repositories/address.repository.js";
-import { AppError } from "../errors/AppError.js";
+import { AddressRepository } from "../../repositories/tickets/address.repository.js";
+import { AppError } from "../../errors/AppError.js";
 
 export const AddressService = {
   async findById(id) {

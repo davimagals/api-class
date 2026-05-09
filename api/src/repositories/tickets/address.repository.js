@@ -1,4 +1,4 @@
-import pool from "../database/index.js";
+import pool from "../../database/index.js";
 
 export const AddressRepository = {
   async findById(id) {

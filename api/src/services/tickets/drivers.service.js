@@ -1,6 +1,6 @@
-import { DriversRepository } from "../repositories/drivers.repository.js";
+import { DriversRepository } from "../../repositories/tickets/drivers.repository.js";
 import { AddressService } from "./address.service.js";
-import { AppError } from "../errors/AppError.js";
+import { AppError } from "../../errors/AppError.js";
 
 export const DriversService = {
   async getAll() {

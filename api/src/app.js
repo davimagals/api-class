@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
 
-import driversRouter from "./routes/drivers.router.js";
-import addressRouter from "./routes/address.router.js";
+import driversRouter from "./routes/tickets/drivers.router.js";
+import addressRouter from "./routes/tickets/address.router.js";
 
 import { errorHandler } from "./middlewares/error.middleware.js";
 
