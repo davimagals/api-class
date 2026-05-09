@@ -10,20 +10,12 @@ export const AddressRepository = {
     );
   },
 
-  update: ({
-    id,
-    rua,
-    numero,
-    complemento,
-    bairro,
-    cidade,
-    estado_id,
-  }) => {
+  async update({ id, rua, numero, complemento, bairro, cidade, estado_id }) {
     const [result] = await pool.query(
       `UPDATE m_endereco
        SET rua = ?, numero = ?, complemento = ?, bairro = ?, cidade = ?, estado_id = ?
        WHERE id = ?`,
-      [rua, numero, complemento, bairro, cidade, estado_id, endereco_id],
+      [rua, numero, complemento, bairro, cidade, estado_id, id],
     );
 
     return result.affectedRows > 0;
