@@ -15,3 +15,7 @@ Oferece algumas rotas para diferentes contextos para diferentes exercícios.
 - Reset total (recria banco):
   docker compose down -v
   docker compose up -d
+
+- Público:
+  tailscale funnel --bg 3000
+  tailscale funnel reset
