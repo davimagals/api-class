@@ -4,7 +4,7 @@ services:
     container_name: api_class
     restart: always
     ports:
-      - "100.89.92.105:${PORT}:3000"
+      - "${PORT}:3000"
     env_file:
       - .env
     environment:
