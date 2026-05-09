@@ -11,9 +11,9 @@ export const AddressService = {
   },
 
   async update(data) {
-    const [result] = await AddressRepository.update(data);
+    const updated = await AddressRepository.update(data);
 
-    if (result.affectedRows === 0) {
+    if (!updated) {
       throw new AppError("Endereço não encontrado", 404);
     }
 

@@ -32,9 +32,9 @@ export const DriversService = {
   },
 
   async update(data) {
-    const [result] = await DriversRepository.update(data);
+    const updated = await DriversRepository.update(data);
 
-    if (result.affectedRows === 0) {
+    if (!updated) {
       throw new AppError("Motorista não encontrado", 404);
     }
 

@@ -1,16 +1,12 @@
 import express from "express";
 import cors from "cors";
-import path from "path";
-import { fileURLToPath } from "url";
 
 import driversRouter from "./routes/drivers.router.js";
 import addressRouter from "./routes/address.router.js";
+
 import { errorHandler } from "./middlewares/error.middleware.js";
 
 const app = express();
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // CORS aberto
 app.use(
@@ -28,9 +24,6 @@ app.use(express.json());
 app.get("/health", (req, res) => {
   res.status(200).json({ status: "ok" });
 });
-
-// Docs
-app.use("/docs", express.static(path.join(__dirname, "public/docs")));
 
 // Rotas: Multas
 app.use("/api/multas/motoristas", driversRouter);
