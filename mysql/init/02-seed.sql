@@ -118,12 +118,12 @@ INSERT INTO p_ingrediente (nome) VALUES
 -- PIZZAS
 -- =========================
 INSERT INTO p_pizza (nome, preco, foto) VALUES
-('Calabresa', 45.90, 'calabresa.jpg'),
-('Frango Catupiry', 52.50, 'frango-catupiry.jpg'),
-('4 Queijos', 58.00, '4-queijos.jpg'),
-('Portuguesa', 54.90, 'portuguesa.jpg'),
-('Mussarela', 42.00, 'mussarela.jpg'),
-('Bacon', 56.50, 'bacon.jpg');
+('Calabresa', 45.90, '/uploads/pizzexpress/calabresa.png'),
+('Frango Catupiry', 52.50, '/uploads/pizzexpress/catupiry.png'),
+('4 Queijos', 58.00, '/uploads/pizzexpress/4-queijos.png'),
+('Portuguesa', 54.90, '/uploads/pizzexpress/portuguesa.png'),
+('Mussarela', 42.00, '/uploads/pizzexpress/mussarela.png'),
+('Bacon', 56.50, '/uploads/pizzexpress/bacon.png');
 
 -- =========================
 -- Relacionamentos

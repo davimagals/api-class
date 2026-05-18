@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 
 import driversRouter from "./routes/tickets/drivers.router.js";
 import addressRouter from "./routes/tickets/address.router.js";
@@ -9,6 +11,10 @@ import pizzasRouter from "./routes/pizzexpress/pizzas.router.js";
 import { errorHandler } from "./middlewares/error.middleware.js";
 
 const app = express();
+
+// Compatibilidade ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // CORS aberto
 app.use(
@@ -21,6 +27,12 @@ app.use(
 
 // JSON
 app.use(express.json());
+
+// Documentação HTML
+app.use("/docs", express.static(path.join(__dirname, "../public/docs")));
+
+// Uploads/imagens
+app.use("/uploads", express.static(path.join(__dirname, "../public/uploads")));
 
 // Health Check
 app.get("/health", (req, res) => {

@@ -133,7 +133,7 @@ CREATE TABLE p_pizza (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
     preco DECIMAL(5, 2) UNSIGNED NOT NULL,
-    foto VARCHAR(70)
+    foto VARCHAR(255)
 );
 
 -- =========================
