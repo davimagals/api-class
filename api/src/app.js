@@ -4,6 +4,8 @@ import cors from "cors";
 import driversRouter from "./routes/tickets/drivers.router.js";
 import addressRouter from "./routes/tickets/address.router.js";
 
+import pizzasRouter from "./routes/pizzexpress/pizzas.router.js";
+
 import { errorHandler } from "./middlewares/error.middleware.js";
 
 const app = express();
@@ -30,6 +32,7 @@ app.use("/api/multas/motoristas", driversRouter);
 app.use("/api/multas/enderecos", addressRouter);
 
 // Rotas: PizzExpress
+app.use("/api/pizzexpress/pizzas", pizzasRouter);
 
 // 404 Handler
 app.use((req, res) => {

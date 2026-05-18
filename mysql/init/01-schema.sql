@@ -119,3 +119,46 @@ CREATE INDEX idx_infracao_motorista ON m_infracao(motorista_cnh);
 CREATE INDEX idx_infracao_veiculo ON m_infracao(veiculo_placa);
 CREATE INDEX idx_infracao_agente ON m_infracao(agente_cpf);
 CREATE INDEX idx_infracao_local ON m_infracao(local_id);
+
+
+
+-- ===========================================================================
+-- Sistema PizzExpress
+-- ===========================================================================
+
+-- =========================
+-- Tabela: Pizza
+-- =========================
+CREATE TABLE p_pizza (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    preco DECIMAL(5, 2) UNSIGNED NOT NULL,
+    foto VARCHAR(70)
+);
+
+-- =========================
+-- Tabela: Ingredientes
+-- =========================
+CREATE TABLE p_ingrediente (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL
+);
+
+-- =========================
+-- Tabela: Pizza possui Ingredientes (n-n)
+-- =========================
+CREATE TABLE p_piz_ing (
+    piz_id INT NOT NULL,
+    ing_id INT NOT NULL,
+
+    PRIMARY KEY (piz_id, ing_id),
+
+    CONSTRAINT fk_possui_pizza
+        FOREIGN KEY (piz_id)
+        REFERENCES p_pizza(id)
+        ON DELETE CASCADE,
+    CONSTRAINT fk_possui_ing
+        FOREIGN KEY (ing_id)
+        REFERENCES p_ingrediente(id)
+        ON DELETE CASCADE
+);
