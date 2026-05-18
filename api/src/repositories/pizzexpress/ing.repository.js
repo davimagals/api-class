@@ -12,7 +12,7 @@ export const IngRepository = {
       FROM p_ingrediente AS i
       INNER JOIN p_piz_ing AS pi
       ON i.id = pi.ing_id
-      WHERE i.id = ?`,
+      WHERE pi.piz_id = ?`,
       [id],
     );
     return rows;
