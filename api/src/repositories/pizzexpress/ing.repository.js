@@ -15,7 +15,7 @@ export const IngRepository = {
       WHERE i.id = ?`,
       [id],
     );
-    return rows[0] || null;
+    return rows;
   },
 
   async create({ nome }) {

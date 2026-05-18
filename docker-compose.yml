@@ -11,6 +11,8 @@ services:
       DB_HOST: mysql
     depends_on:
       - mysql
+    volumes:
+      - ./api/public/uploads:/app/public/uploads
 
   mysql:
     image: mysql:8.0
